@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'JuPedSim'
+copyright = '2021, FZJ'
+author = 'Ich'
 
 release = '0.1'
 version = '0.1.0'

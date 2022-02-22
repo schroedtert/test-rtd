@@ -1,7 +1,6 @@
-=====
-JuPedSim
-=====
-
+=============================
+Getting started with jupedsim
+=============================
 
 |DOI|
 
@@ -9,7 +8,7 @@ JuPedSim
 tactical level of pedestrian dynamics.
 
 Demo files
-----------
+==========
 
 In the directory ``demos`` there are some examples to start with:
 
@@ -58,8 +57,10 @@ in the same directory. This can be visualized with ``jpsvis``
 
     jpsvis demos/scenario_7_floorfield/results/Kobes_traj.xml
 
-![Simulation using demo 7 of ``jpscore`` ]({{ site.baseurl
-}}/images/kobe.gif)
+.. figure:: %7B%7B%20site.baseurl%20%7D%7D/images/kobe.gif
+   :alt: Simulation using demo 7 of ``jpscore``
+
+   Simulation using demo 7 of ``jpscore``
 
 {% include links.html %}
 
