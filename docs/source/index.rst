@@ -1,22 +1,69 @@
-Welcome to Lumache's documentation!
-===================================
+--------------
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+.. _title-getting-started-with-jupedsim-keywords-simulation-tags-jpscore-getting_started-sidebar-jupedsim_sidebar-permalink-jpscore_introductionhtml-summary-jpscore-is-the-simulation-module-of-jupedsim-its-a-command-line-tool-to-simulate-the-evacuation-of-pedestrians-in-continuous-space-last_updated-nov-09-2021-toc-false:
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+title: "Getting started with jupedsim" keywords: simulation tags: [jpscore, getting_started] sidebar: jupedsim_sidebar permalink: jpscore_introduction.html summary: jpscore is the simulation module of JuPedSim. It's a command-line tool to simulate the evacuation of pedestrians in continuous space. last_updated: Nov 09, 2021 toc: false
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-.. note::
+|DOI|
 
-   This project is under active development.
+``jpscore`` implements models on the operational as well as on the
+tactical level of pedestrian dynamics.
 
-Contents
---------
+Demo files
+----------
 
-.. toctree::
+In the directory ``demos`` there are some examples to start with:
 
-   usage
-   api
+.. code:: bash
+
+   ├── demos
+   │   ├── scenario_1_corridor
+   │   │   ├── corridor_geo.xml
+   │   │   ├── corridor_ini.xml
+   │   ├── scenario_2_bottleneck
+   │   │   ├── bottleneck_geo.xml
+   │   │   └── bottleneck_ini.xml
+   │   ├── scenario_3_corner
+   │   │   ├── corner_geo.xml
+   │   │   ├── corner_ini.xml
+   │   │   └── corner_routing.xml
+   │   ├── scenario_4_stairs
+   │   │   ├── stairs_geo.xml
+   │   │   ├── stairs_ini.xml
+   │   │   └── stairs_routing.xml
+       │   ├── scenario_7_floorfield
+   │   │   ├── Kobes_geo.xml
+   │   │   ├── ffRouter_ini.xml
+   |
+   |
+   |.....
+   │
+
+Taking the 7th demo as input, we run a simulation as follows:
+
+.. code:: bash
+
+    ./bin/jpscore  demos/corner_ini.xml
+
+Information on processing steps, warnings and errors of jpscore are
+written to the console. This output can be redirected to a file by:
+
+.. code:: bash
+
+    ./bin/jpscore  demos/corner_ini.xml > log_example.txt
+
+This program call produces a trajectory file in the folder ``results``
+in the same directory. This can be visualized with ``jpsvis``
+
+.. code:: bash
+
+    jpsvis demos/scenario_7_floorfield/results/Kobes_traj.xml
+
+![Simulation using demo 7 of ``jpscore`` ]({{ site.baseurl
+}}/images/kobe.gif)
+
+{% include links.html %}
+
+.. |DOI| image:: https://zenodo.org/badge/36440436.svg
+   :target: https://zenodo.org/badge/latestdoi/36440436
