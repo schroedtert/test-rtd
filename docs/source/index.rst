@@ -1,67 +1,22 @@
-=====
-JuPedSim
-=====
+This is a test for JuPedSim
+===================================
 
+**Lumache** (/lu'make/) is a Python library for cooks and food lovers
+that creates recipes mixing random ingredients.
+It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
+and offers a *simple* and *intuitive* API.
 
-|DOI|
+Check out the :doc:`usage` section for further information, including
+how to :ref:`installation` the project.
 
-``jpscore`` implements models on the operational as well as on the
-tactical level of pedestrian dynamics.
+.. note::
 
-Demo files
-----------
+   This project is under active development.
 
-In the directory ``demos`` there are some examples to start with:
+Contents
+--------
 
-.. code:: bash
+.. toctree::
 
-   ├── demos
-   │   ├── scenario_1_corridor
-   │   │   ├── corridor_geo.xml
-   │   │   ├── corridor_ini.xml
-   │   ├── scenario_2_bottleneck
-   │   │   ├── bottleneck_geo.xml
-   │   │   └── bottleneck_ini.xml
-   │   ├── scenario_3_corner
-   │   │   ├── corner_geo.xml
-   │   │   ├── corner_ini.xml
-   │   │   └── corner_routing.xml
-   │   ├── scenario_4_stairs
-   │   │   ├── stairs_geo.xml
-   │   │   ├── stairs_ini.xml
-   │   │   └── stairs_routing.xml
-       │   ├── scenario_7_floorfield
-   │   │   ├── Kobes_geo.xml
-   │   │   ├── ffRouter_ini.xml
-   |
-   |
-   |.....
-   │
-
-Taking the 7th demo as input, we run a simulation as follows:
-
-.. code:: bash
-
-    ./bin/jpscore  demos/corner_ini.xml
-
-Information on processing steps, warnings and errors of jpscore are
-written to the console. This output can be redirected to a file by:
-
-.. code:: bash
-
-    ./bin/jpscore  demos/corner_ini.xml > log_example.txt
-
-This program call produces a trajectory file in the folder ``results``
-in the same directory. This can be visualized with ``jpsvis``
-
-.. code:: bash
-
-    jpsvis demos/scenario_7_floorfield/results/Kobes_traj.xml
-
-![Simulation using demo 7 of ``jpscore`` ]({{ site.baseurl
-}}/images/kobe.gif)
-
-{% include links.html %}
-
-.. |DOI| image:: https://zenodo.org/badge/36440436.svg
-   :target: https://zenodo.org/badge/latestdoi/36440436
+   jpscore/jpscore_inifile.md
+   jpscore/jpscore_goals.md
