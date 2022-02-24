@@ -57,12 +57,10 @@ in the same directory. This can be visualized with ``jpsvis``
 
     jpsvis demos/scenario_7_floorfield/results/Kobes_traj.xml
 
-.. figure:: %7B%7B%20site.baseurl%20%7D%7D/images/kobe.gif
+.. figure:: ../images/kobe.gif
    :alt: Simulation using demo 7 of ``jpscore``
 
    Simulation using demo 7 of ``jpscore``
-
-{% include links.html %}
 
 .. |DOI| image:: https://zenodo.org/badge/36440436.svg
    :target: https://zenodo.org/badge/latestdoi/36440436
