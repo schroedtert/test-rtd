@@ -3,11 +3,11 @@
 # -- Project information
 
 project = 'JuPedSim'
-copyright = '2021, FZJ'
-author = 'Ich'
+copyright = '2022, Forschungszentrum Juelich GmbH'
+author = 'JuPedSim Development Team'
 
-release = '0.1'
-version = '0.1.0'
+release = '0.9.4'
+version = '0.9.4'
 
 # -- General configuration
 
