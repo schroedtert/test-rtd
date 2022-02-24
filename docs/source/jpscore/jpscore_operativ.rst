@@ -28,27 +28,17 @@ Model parameters (in general)
 
    -  The time step for the solver. This should be choosed with care.
       For force-based model it is recommended to take a value between
-
-      .. math::  10^{-2} 
-
-      \ and
-
-      .. math:: 10^{-3}
-
-      s. For first-order models, a value of 0.05 s should be OK. A
-      larger time step leads to faster simulations, however it is too
-      risky and can lead to numerical instabilities, collisions and
-      overlapping among pedestrians.
+      :math:`10^{-2}` and :math:`10^{-3}` s. For first-order models, a
+      value of 0.05 s should be OK. A larger time step leads to faster
+      simulations, however it is too risky and can lead to numerical
+      instabilities, collisions and overlapping among pedestrians.
    -  Unit: s
 
 -  ``<exit_crossing_strategy>3</exit_crossing_strategy>``
 
-   -  Positive values in
-
-      .. math:: [1, 9]
-
-      . See `Direction strategies <jpscore_direction.html>`__ for the
-      definition of the strategies.
+   -  Positive values in :math:`[1, 9]`. See
+      `Direction strategies <jpscore_direction.html>`__ for the definition of
+      the strategies.
 
 -  ``<linkedcells enabled="true" cell_size="2"/>``
 
@@ -96,9 +86,9 @@ Desired speed
    -  Speed of agents on escalators downstairs
    -  Unit: m/s
 
-{%include important.html content=“The desired speed changes *smoothly*
-from one plane to another. See this
-`documentation <jpscore_desired_speed.html>`__ for more details.”%}
+.. note::
+    The desired speed changes *smoothly* from one plane to another. See this
+    `documentation <jpscore_desired_speed.html>`__ for more details.
 
 The reduced speed on stairs (up) is according to Tab 1 in
 `Burghardt2014 <http://link.springer.com/chapter/10.1007%2F978-3-319-02447-9_27>`__.
@@ -115,18 +105,10 @@ FM       0.55 m/s
 Shape of pedestrians
 --------------------
 
-Pedestrians are modeled as ellipses with two semi-axes:
-
-.. math:: a
-
-\ and
-
-.. math:: b
-
-, where
+Pedestrians are modeled as ellipses with two semi-axes: :math:`a` and :math:`b`,
+where
 
 .. math::
-
 
    a= a_{min} + a_{\tau}v,
 
@@ -134,12 +116,9 @@ and
 
 .. math::
 
-
    b = b_{max} - (b_{max}-b_{min})\frac{v}{v^0}.
 
-.. math:: v
-
-\ is the speed of a pedestrian.
+:math:`v` is the speed of a pedestrian.
 
 -  ``<bmax mu="0.15" sigma="0.0" />``
 
@@ -154,10 +133,7 @@ and
 -  ``<amin mu="0.15" sigma="0.0" />``
 
    -  Minimal length of the movement semi-axis. This is the case when
-
-      .. math:: v=0
-
-      .
+      :math:`v=0`.
    -  Unit: m
 
 -  ``<atau mu="0." sigma="0.0" />``
@@ -185,28 +161,12 @@ Model parameters (GCFM)
    The repulsive force between two agents. See `Fig.
    7 <https://arxiv.org/pdf/1008.4297.pdf>`__.
 
-   -  ``nu`` is the strength of the force (
-
-      .. math:: \nu
-
-      \ in Eq. (19)).
-   -  ``dist_max`` is the maximum force at contact (
-
-      .. math:: f_m
-
-      )
-   -  ``disteff_max``: cut-off radius (
-
-      .. math:: r_c
-
-      ). Note this value should be smaller than ``cell_size`` of the
-      linkedcells. See `Model parameters (in
+   -  ``nu`` is the strength of the force (:math:`\nu` in Eq. (19)).
+   -  ``dist_max`` is the maximum force at contact (:math:`f_m`)
+   -  ``disteff_max``: cut-off radius (:math:`r_c`). Note this value should be
+      smaller than ``cell_size`` of the linkedcells. See `Model parameters (in
       general) <#model-parameters-in-general>`__.
-   -  ``interpolation_width`` (
-
-      .. math:: r_{eps}
-
-      )
+   -  ``interpolation_width`` (:math:`r_{eps}`)
 
 -  ``<force_wall nu="0.1" dist_max="1" disteff_max="2" interpolation_width="0.1" />``
    The parameters for the repulsive force between a wall and an agent
@@ -257,49 +217,17 @@ necessary for this model:
 
 -  ``<force_ped  a="5" D="0.2"/>``
 
-   -  The influence of other pedestrians is triggered by
-
-      .. math:: a
-
-      \ and
-
-      .. math:: D
-
-      where
-
-      .. math:: a
-
-      is the strength of the interaction and
-
-      .. math:: D
-
-      gives its range. The naming may be misleading, since the model is
-      **not** force-based, but velocity-based.
+   -  The influence of other pedestrians is triggered by :math:`a` and :math:`D`
+      where :math:`a` is the strength of the interaction and :math:`D` gives its
+      range.
    -  Unit: m
 
 -  ``<force_wall a="5" D="0.02"/>``:
 
-   -  The influence of walls is triggered by
-
-      .. math:: a
-
-      \ and
-
-      .. math:: D
-
-      where
-
-      .. math:: a
-
-      is the strength of the interaction and
-
-      .. math:: D
-
-      gives its range. A larger value of
-
-      .. math:: D
-
-      may lead to blockades, especially when passing narrow bottlenecks.
+   -  The influence of walls is triggered by :math:`a` and :math:`D` where
+      :math:`a` is the strength of the interaction and :math:`D` gives its
+      range. A larger value of :math:`D` may lead to blockades, especially when
+      passing narrow bottlenecks.
    -  Unit: m
 
 The names of the aforementioned parameters might be misleading, since
@@ -350,24 +278,16 @@ In summary the relevant section for this model could look like:
            <bmax mu="0.15" sigma="0.0" />
            <bmin mu="0.15" sigma="0.0" />
            <amin mu="0.15" sigma="0.0" />
-           <atau mu="0." sigma="0.0" />        
+           <atau mu="0." sigma="0.0" />
            <T mu="1" sigma="0.0" />
        </agent_parameters>
     </model>
 
-{%include note.html content=“The recommended values are by no means
-universal, and may/should be calibrated to fit your scenario.
-
-Moreover, some parameter values, for instance
-
-.. math:: \nu
-
-\ in the GCFM or
-
-.. math:: a
-
-in Tordeux2015, have to be chosen wisely. Otherwise, it is possible that
-the agents overlap excessively, since no explicit collision-detection
-algorithms are implemented in these models. In case of excessive
-overlapping we recommend to perform the simulation again with different
-values. “%}
+.. note::
+    The recommended values are by no means universal, and may/should be
+    calibrated to fit your scenario. Moreover, some parameter values, for
+    instance :math:`\nu` in the GCFM or :math:`a` in Tordeux2015, have to be
+    chosen wisely. Otherwise, it is possible that the agents overlap
+    excessively, since no explicit collision-detection algorithms are
+    implemented in these models. In case of excessive overlapping we recommend
+    to perform the simulation again with different values.
