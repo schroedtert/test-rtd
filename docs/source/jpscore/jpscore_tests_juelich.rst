@@ -13,15 +13,9 @@ Verification
 
 -  **Test 2**: One pedestrian moving in a corridor
 
-   Rotating the same geometry as in test 1 around the
-
-   .. math:: z-
-
-   \ axis by an arbitrary angle e.g. 
-
-   .. math:: 45^\circ
-
-   should lead to the evacuation time of 10 s.
+   Rotating the same geometry as in test 1 around the :math:`z-`axis by an
+   arbitrary angle e.g. :math:`45^\circ` should lead to the evacuation time of
+   10 s.
 
 -  **Test 3**: One pedestrian moving in a corridor with a desired
    direction
@@ -46,7 +40,7 @@ Verification
    This test is Similar to test 4. Two pedestrians are aligned in the
    same room. The second pedestrian from left is standing and will not
    move during the test. The corridor is narrow and does not allow
-   passing of two pedestians without serious overlapping.
+   passing of two pedestrians without serious overlapping.
 
    Expected result: Pedestrian left should stop without overlapping with
    the standing pedestrian.
@@ -68,32 +62,14 @@ Verification
    investigated geometry has three different exists.
 
    -  Two different groups of pedestrians are randomly distributed in
-      the inner room, such that the first group is nearer to
-
-      .. math:: E_1
-
-      \ than to
-
-      .. math:: E_2
-
-      . The number of pedestrians in both groups is relatively small but
-      is equal
-
-      .. math:: (N_{\text{group 1}}=N_{\text{group 2}}=10
-
-      ). The router strategy is ``local shortest``.
-   -  One group of pedestrians
-
-      .. math:: N = 50
-
-      \ is randomly distributed in the inner room. The router strategy
-      is ``local shortest``.
-   -  One group of pedestrians
-
-      .. math:: N = 50
-
-      \ is randomly distributed in the inner room. The router strategy
-      is ``global shortest``.
+      the inner room, such that the first group is nearer to :math:`E_1` than
+      to :math:`E_2`. The number of pedestrians in both groups is relatively
+      small but is equal :math:`(N_{\text{group 1}}=N_{\text{group 2}}=10`).
+      The router strategy is ``local shortest``.
+   -  One group of pedestrians :math:`N = 50` is randomly distributed in the
+      inner room. The router strategy is ``local shortest``.
+   -  One group of pedestrians :math:`N = 50` is randomly distributed in the
+      inner room. The router strategy is ``global shortest``.
 
    Expected result: The pedestrians should be able to choose between the
    local shortest as well as the global shortest route.
@@ -152,26 +128,11 @@ Verification
 -  **Test 14**: Uniform distribution of initial positions
 
    The initial distribution of the pedestrian should be uniform. In a
-   square room
-
-   .. math:: (100\times 100\,
-
-   \ 
-
-   .. math:: m^2
-
-   ) 2000 pedestrians are randomly distributed. The test is repeated
-   1000 times. Divide the room equidistantly in 10 regions with respect
-   to
-
-   .. math:: x
-
-   - and
-
-   .. math:: y-
-
-   axis and count the number of pedestrians in each square. This count
-   should be roughly the same in all squares:
+   square room :math:`(100\times 100\,m^2)` 2000 pedestrians are randomly
+   distributed. The test is repeated 1000 times. Divide the room equidistantly
+   in 10 regions with respect to :math:`x-` and :math:`y-` axis and count the
+   number of pedestrians in each square. This count should be roughly the same
+   in all squares:
 
 .. code:: python
 
@@ -191,86 +152,54 @@ Verification
    px = scipy.stats.chisquare(nx)[1]
    py = scipy.stats.chisquare(ny)[1]
 
-Expected result: The mean value of the 1000 p-values of the
-
-.. math:: \chi^2
-
--test should be around 0.5.
+Expected result: The mean value of the 1000 p-values of the :math:`\chi^2`-test
+should be around 0.5.
 
 Validation
 ==========
 
 -  **Test 1**: 1D movement with periodical boundary
 
-   The shape of the fundamental diagram
-
-   .. math:: (\rho, v
-
-   ) should be realistic (decreasing velocity with increasing density).
+   The shape of the fundamental diagram :math:`(\rho, v)` should be realistic
+   (decreasing velocity with increasing density).
 
 -  **Test 2**: 2D unidirectional flow in corridor with periodical
    boundary
 
-   The shape of the fundamental diagram
-
-   .. math:: (\rho, v
-
-   ) should be realistic (decreasing velocity with increasing density).
+   The shape of the fundamental diagram :math:`(\rho, v)` should be realistic
+   (decreasing velocity with increasing density).
 
 -  **Test 3**: Unidirectional flow in corridor with open boundary
 
-   The shape of the fundamental diagram
-
-   .. math:: (\rho, v
-
-   ) should be realistic (decreasing velocity with increasing density).
+   The shape of the fundamental diagram :math:`(\rho, v)` should be realistic
+   (decreasing velocity with increasing density).
 
 -  **Test 4**: Unidirectional flow around a Corner
 
    The fundamental diagram is measured in two different locations.
    Before the corner and after the corner. The shape of the fundamental
-   diagram
-
-   .. math:: (\rho, v
-
-   ) should be realistic (decreasing velocity with increasing density).
+   diagram :math:`(\rho, v)` should be realistic (decreasing velocity with
+   increasing density).
 
 -  **Test 5**: Flow through bottleneck
 
-   The flow
-
-   .. math:: J = N / \Delta t
-
-   , with
-
-   .. math:: N
-
-   is the total number of participants in the run and
-
-   .. math:: \Delta t
-
-   is the time interval between the first and the last pedestrian
-   entering the bottleneck, should increase linearly with increasing
-   width of the bottleneck.
+   The flow :math:`J = N / \Delta t`, with :math:`N` is the total number of
+   participants in the run and :math:`\Delta t` is the time interval between
+   the first and the last pedestrian entering the bottleneck, should increase
+   linearly with increasing width of the bottleneck.
 
 -  **Test 6**: Merging flow in T-junction
 
    The fundamental diagram is measured in three different locations.
    Right and left of the T-junction and after the merging of flows.
 
-   The shape of the fundamental diagram
-
-   .. math:: (\rho, v
-
-   ) should be realistic (decreasing velocity with increasing density).
+   The shape of the fundamental diagram :math:`(\rho, v)` should be realistic
+   (decreasing velocity with increasing density).
 
 -  **Test 7** - Bidirectional flow in corridor
 
-   The shape of the fundamental diagram
-
-   .. math:: (\rho, v
-
-   ) should be realistic (decreasing velocity with increasing density).
+   The shape of the fundamental diagram :math:`(\rho, v)` should be realistic
+   (decreasing velocity with increasing density).
 
 --------------
 
