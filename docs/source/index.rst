@@ -51,6 +51,20 @@ Contents
 --------
 
 .. toctree::
-   jpscore
-   jpsreport
-   jpsvis
+   jpscore/jpscore_introduction
+   jpscore/jpscore_inifile
+   jpscore/jpscore_operativ
+   jpscore/jpscore_routing
+   jpscore/jpscore_direction
+   jpscore/jpscore_goals
+   jpscore/jpscore_sources
+   jpscore/jpscore_traffic
+   jpscore/jpscore_events
+   jpscore/jpscore_schedule
+   jpscore/jpscore_trajectory
+   jpscore/jpscore_geometry
+   jpscore/jpscore_transitions
+   jpscore/jpscore_trains
+   jpscore/jpscore_demos
+   jpscore/jpscore_tests_juelich
+   jpscore/jpscore_desired_speed
