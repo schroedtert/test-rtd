@@ -15,31 +15,26 @@ the Floyd-Warshall algorithm.
 
 The floorfield-router will give intermediate targets within
 the\ ``subroom`` of each agent. It works in combination with exit
-strategies 8 and 9. [1]_
+strategies 8. [1]_
 
-{%include warning.html content=“3D geometries: To use it successfully in
-multi-storage buildings, the user must provide a geometry file, where
-stair-cases (or any other structur), which connects two floors/levels
-**must** be a separate room. Further, that room **must** only connect
-two levels. Rooms stretching over more than 2 levels are not valid.”%}
+.. warning::
 
-If there are two points with the same (
+  3D geometries: To use it successfully in multi-storage buildings, the user
+  must provide a geometry file, where stair-cases (or any other structure),
+  which connects two floors/levels **must** be a separate room. Further, that
+  room **must** only connect two levels. Rooms stretching over more than 2
+  levels are not valid.
 
-.. math:: x, y
-
-)-coordinates, which differ only in the
-
-.. math:: z
-
--coordinate, the router will face problems, thus we defined the
-restriction above. That should avoid any such cases.
+If there are two points with the same (:math:`x, y`)-coordinates, which differ
+only in the :math:`z`-coordinate, the router will face problems, thus we
+defined the restriction above. That should avoid any such cases.
 
 The floorfield router provides one mode: ``ff_global_shortest``
 
-{%include important.html content=“If you use a router, which allows
-non-convex subrooms/rooms, you should use an exit-strategy, which also
-allows non-convex subrooms/rooms. Exit-strategies 8 and 9 will work best
-with the floorfield router.”%}
+.. note::
+  If you use a router, which allows non-convex subrooms/rooms, you should use
+  an exit-strategy, which also allows non-convex subrooms/rooms.
+  Exit-strategies 8 will work best with the floorfield router.
 
 Following snippet is a definition example of the routing information:
 
