@@ -35,6 +35,10 @@ In detail the following attributes are defined:
       door will be closed again at ``t + closing_time`` or when
       max_agents is reached.
 
+.. note::
+    All times are in seconds.
+
+
 Sample
 ======
 
@@ -88,7 +92,4 @@ In this example a schedule defining four different groups
    </JPScore>
 
 In this example the doors of group 3 will **open** at 10, 60 and 90
-
 and **closed** at 20, 70 and 100.
-
-{% include note.html content=“all times are in seconds.”%}
