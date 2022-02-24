@@ -43,7 +43,7 @@ The header comprises the following elements:
 
 -  The trajectory file
 
-.. code:: bash
+.. code:: xml
 
     <trajectories format="plain" fps="8" precision="2" color_mode="velocity">
        <file location="trajectories.txt" />
@@ -76,14 +76,15 @@ The options for the format are
 -  ``optional_output``: possibility to give additional output. Set any
    of these values to ``TRUE`` (not case sensitive) to get the according
    value. ``FALSE``, any other value and ignoring the option will lead
-   to no output. - ``speed``: speed of the pedestrian - ``velocity``:
-   x,y components of the pedestrians’s velocity - ``final_goal``: id of
-   the final goal the pedestrian is heading to - ``intermediate_goal``:
-   id of the current goal the pedestrian is heading to (usually a door)
-   - ``desired_direction``: x,y components of the pedestrians’s desired
-   directions - ``group``: group of the pedestrian - ``router``: router
-   used by the pedestrian (id accoriding to ini-file) - ``spotlight``:
-   pedestrian is highlighted.
+   to no output.
+     - ``speed``: speed of the pedestrian
+     - ``velocity``: x,y components of the pedestrians’s velocity
+     - ``final_goal``: id of the final goal the pedestrian is heading to
+     - ``intermediate_goal``: id of the current goal the pedestrian is heading to (usually a door)
+     - ``desired_direction``: x,y components of the pedestrians’s desired directions
+     - ``group``: group of the pedestrian
+     - ``router``: router  used by the pedestrian (id according to ini-file)
+     - ``spotlight``: pedestrian is highlighted.
 
 .. code:: xml
 
@@ -96,9 +97,9 @@ Train constraints
 =================
 
 In the inifile the following section should be defined, where two files
-are specified: - `Train
-timetable <jpscore_trains.html#train-timetable>`__ - `Train
-types <jpscore_trains.html#train-types>`__
+are specified:
+  - `Train timetable <jpscore_trains.html#train-timetable>`__
+  - `Train types <jpscore_trains.html#train-types>`__
 
 .. code:: xml
 
@@ -125,9 +126,9 @@ This section defines constraints related to doors.
 -  ``file`` file containing further constraints. See
    `traffic.xml <jpscore_traffic.html>`__
 
-{%include note.html content=“although all traffic constraints can be
-written in the inifile, we recommend to use a seperated file and linked
-it in the inifile as shown above.”%}
+.. note::
+  Although all traffic constraints can be written in the inifile, we recommend
+  to use a separated file and linked it in the inifile as shown above.
 
 Routing
 =======
@@ -166,33 +167,35 @@ The routing comprises additional goals, which might be defined
 Goals
 =====
 
-Additional goals, which are defined **outside** the geometry. {%include
-note.html content=“Goals should *NOT* overlap with any walls or be
-inside rooms.”%}
+Additional goals, which are defined **outside** the geometry.
 
-It is recommended to position them near the exits. - Goals are defined
-with close polygons, with *the last vertex is equal to the first one*. -
-``file`` file containing further goals. See
-`goals.xml <jpscore_goals.html>`__
+.. note::
+    Goals should *NOT* overlap with any walls or be inside rooms.
+
+It is recommended to position them near the exits.
+  - Goals are defined with close polygons, with *the last vertex is equal to the first one*.
+  - ``file`` file containing further goals. See `goals.xml <jpscore_goals.html>`__.
 
 Waiting Area
 ============
 
-Addional goals, which are defined **inside** the geometry.
+Additional goals, which are defined **inside** the geometry.
 
-{%include note.html content=“Waiting areas should *NOT* overlap with any
-walls or be outside rooms.”%}
+.. note::
+    Waiting areas should *NOT* overlap with any walls or be inside rooms.
 
-Here are some use cases: - Waiting: Designated waiting areas where
-pedestrians wait for a specific time or till an specific door opens.
-After waiting is over the move to one of the specified next goal
-(decided individually for each ped). - Manual routing: Goals which
-should be passed before leaving the building without waiting
-(``waiting_time="0"``). Can be used to reduce jam in front of
-bottlenecks or ensuring pedestrian walk through certain paths. {%include
-warning.html content=“Unexpected behaviour might be observed if the
-shortest distance to the next goal does not match the desired route. In
-such a case consider placing the waiting area at an other place.”%}
+Here are some use cases:
+  - Waiting: Designated waiting areas where pedestrians wait for a specific time
+    or till an specific door opens. After waiting is over the move to one of the
+    specified next goal (decided individually for each ped).
+  - Manual routing: Goals which should be passed before leaving the building
+    without waiting (``waiting_time="0"``). Can be used to reduce jam in front
+    of bottlenecks or ensuring pedestrian walk through certain paths.
+
+.. warning::
+    Unexpected behaviour might be observed if the shortest distance to the next
+    goal does not match the desired route. In such a case consider placing the
+    waiting area at an other place.
 
 -  Waiting areas are defined as closed polygons, with *the last vertex
    is equal to the first one*.
@@ -295,37 +298,21 @@ number of attributes, which are as follows:
    options are only considered if ``number=1``.
 
 -  ``pre_movement_mean`` and ``pre_movement_sigma``: premovement time is
-   Gauss-distributed
-
-   .. math:: \mathcal{N}(\mu, \sigma^2)
-
-   .
+   Gauss-distributed :math:`\mathcal{N}(\mu, \sigma^2)`.
 
 -  Risk tolerance can be Gauss-distributed, or beta-distributed. If not
-   specified then it is defined as
+   specified then it is defined as :math:`\mathcal{N}(1, 0)`:
+     -  ``risk_tolerance_mean`` and ``risk_tolerance_sigma``:
+        :math:`\mathcal{N}(\mu, \sigma^2)`.
 
-   .. math:: \mathcal{N}(1, 0)
-
-   :
-
-   -  ``risk_tolerance_mean`` and ``risk_tolerance_sigma``:
-
-      .. math:: \mathcal{N}(\mu, \sigma^2)
-
-      .
-
-   -  ``risk_tolerance_alpha`` and ``risk_tolerance_beta``:
-
-      .. math:: Beta(\alpha, \beta)
-
-      .
+     -  ``risk_tolerance_alpha`` and ``risk_tolerance_beta``:
+        :math:`Beta(\alpha, \beta)`.
 
 -  ``patience``: this parameter influences the route choice behavior
    when using the quickest path router. It basically defines how long a
    pedestrian stays in jams before attempting a rerouting.
 
--  ``age``: not yet used by any of the
-   `operational <jpscore_operativ.html>`__ models.
+-  ``age``: not yet used by any of the `operational <jpscore_operativ.html>`__ models.
 
 -  ``gender``: not yet used.
 
@@ -339,9 +326,11 @@ possible to define sources in order to “inject” new agents in the system
 during the simulation. The parameter of the sources defined
 `here <jpscore_sources.html>`__.
 
-An example of usage: - Busses are coming every 10 min (600 seconds). -
-Every bus transports 100 pedestrians. - When the bus stops, every 2
-seconds 10 pedestrians leave the bus. - 3 Buses at max.
+An example of usage:
+  - Buses are coming every 10 min (600 seconds).
+  - Every bus transports 100 pedestrians.
+  - When the bus stops, every 2 seconds 10 pedestrians leave the bus.
+  - 3 Buses at max.
 
 .. code:: xml
 
