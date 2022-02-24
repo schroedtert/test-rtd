@@ -13,17 +13,12 @@ Parameter of a source
 -  ``percent`` (float): percent of ``N_create`` to generate (default:
    1.0). A number between 0 and 1.
 
-{%include note.html content=“percent should be at least equal to
+.. note::
+    percent should be at least equal to :math:`\lceil \frac{\text{frequency}}{\text{rate}}\rceil`
+    in order to generate ``N_create`` agents.
 
-.. math:: \lceil \frac{\text{frequency}}{\text{rate}}\rceil
-
-\ in order to generate ``N_create`` agents.”%}
-
--  ``rate`` (int): rate of generation of ``percent``\ 
-
-   .. math:: \times
-
-   \ ``N_create`` agents. (default: ``frequency``)
+-  ``rate`` (int): rate of generation of ``percent`` :math:`\times` ``N_create``
+   agents. (default: ``frequency``)
 
 -  ``time_min`` (float), ``time_max``: Time lifespan of the source.
 
@@ -46,19 +41,8 @@ Parameter of a source
 
 -  ``greedy`` (bool): returns a Voronoi vertex randomly with respect to
    weights proportional to squared distances. (default: ``false``). For
-   vertexes
-
-   .. math:: v_i
-
-   \ and distances
-
-   .. math:: d_i
-
-   to their surrounding seeds calculate the probabilities
-
-   .. math:: p_i
-
-   as
+   vertexes :math:`v_i` and distances :math:`d_i` to their surrounding seeds
+   calculate the probabilities :math:`p_i` as
 
    .. math:: p_i= \frac{d_i^2}{\sum_j^n d_j^2}.
 
@@ -72,20 +56,17 @@ Parameter of a source
 Example 1
 =========
 
-Starting from time 2 seconds,
-
-.. math:: percent\times N\_create=2
-
-\ are generated with a rate of 4 seconds.
+Starting from time 2 seconds, :math:`percent\times N\_create=2` are generated
+with a rate of 4 seconds.
 
 .. code:: xml
 
    <source id="1" group_id="1"
        time_min="2"
-       time_max="30" 
+       time_max="30"
        frequency="10"
        rate="4"
-       percent="0.2" 
+       percent="0.2"
        N_create="10"
        agents_max="300"/>
 
@@ -93,7 +74,7 @@ Note that a cycle of generation starts at every ``frequency`` mark (red
 ticks). Therefore, if ``percent`` is too low, the chances are that the
 number of created agents in one cycle is smaller than ``N_create``.
 
-.. figure:: %7B%7B%20site.baseurl%20%7D%7D/images/sources_p02.gif
+.. figure:: ../images/sources_p02.gif
    :alt: Generation of agents with percent=0.2.
 
    Generation of agents with percent=0.2.
@@ -101,27 +82,24 @@ number of created agents in one cycle is smaller than ``N_create``.
 Example 2
 =========
 
-Starting from time 2 seconds,
-
-.. math:: percent\times N\_create=5
-
-\ are generated with a rate of 4 seconds.
+Starting from time 2 seconds, :math:`percent\times N\_create=5` are generated \
+with a rate of 4 seconds.
 
 .. code:: xml
 
    <source id="1" group_id="1"
        time_min="2"
-       time_max="30" 
+       time_max="30"
        frequency="10"
        rate="4"
-       percent="0.5" 
+       percent="0.5"
        N_create="10"
        agents_max="300"/>
 
 Here, ``N_create`` is generated in every cycle, although in comparison
 to example 1 only 2 generation steps are needed (instead of 3).
 
-.. figure:: %7B%7B%20site.baseurl%20%7D%7D/images/sources_p05.gif
+.. figure:: ../images/sources_p05.gif
    :alt: Generation of agents with percent=0.2.
 
    Generation of agents with percent=0.2.
