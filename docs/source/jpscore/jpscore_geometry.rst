@@ -7,7 +7,7 @@ Structure of the geometry
 
 The main structure of the geometry file is as follows
 
-.. figure:: %7B%7B%20site.baseurl%20%7D%7D/images/class-diagram.png
+.. figure:: ../images/class-diagram.png
    :alt: The main components defining a geometry
 
    The main components defining a geometry
@@ -38,22 +38,19 @@ The main structure of the geometry file is as follows
 Geometry example
 ================
 
-.. figure:: %7B%7B%20site.baseurl%20%7D%7D/images/geometry_example2.png
+.. figure:: ../images/geometry_example2.png
    :alt: Geometry example
 
    Geometry example
 
-.. figure:: %7B%7B%20site.baseurl%20%7D%7D/images/geometry_example.png
+.. figure:: ../images/geometry_example.png
    :alt: Geometry example 2
 
    Geometry example 2
 
-{% capture download_note %}xml and dwg files for the example above can
-be downloaded
-`here <%7B%7B%20site.base%20%7D%7D/files/2_mixedusage.zip>`__\ {%
-endcapture %}
+.. note::
+    xml and dwg files for the example above can be downloaded :download:`here <../files/2_mixedusage.zip>`.
 
-{%include note.html content=download_note%}
 
 --------------
 
@@ -65,7 +62,7 @@ There are two ways to structure geometries for JuPedSim:
 Following picture shows a sample geometry with one room, two subrooms
 and one obstacle.
 
-.. figure:: %7B%7B%20site.baseurl%20%7D%7D/images/Subrooms.png
+.. figure:: ../images/Subrooms.png
    :alt: A corner defined by one room and two subrooms
 
    A corner defined by one room and two subrooms
@@ -77,15 +74,14 @@ geometry. Basically, it is up to the user to organize its geometry
 For instance the above mentioned geometry could also be organized using
 two rooms as follows:
 
-.. figure:: %7B%7B%20site.baseurl%20%7D%7D/images/Rooms.png
+.. figure:: ../images/Rooms.png
    :alt: A corner defined by two different rooms
 
    A corner defined by two different rooms
 
 --------------
 
-A geometry can be produces manually (for small scenarios) or with
-`jpseditor <jpseditor_introduction.html>`__. In both cases it is
+A geometry can be produces manually (for small scenarios) . In both cases it is
 recommended to visualize the geometry once finished with
 `jpsvis <jpsvis_introduction.html>`__.
 
@@ -142,35 +138,20 @@ a sample:
       escalators have a *speed*.
    -  ``platform`` needs additionally walls of type ``track-n``, see
       also `here <jpscore_trains.html>`__.
-
--  
-
-   .. math:: A\_x,\; B\_y,\text{and}\; C
-
-   \ are optional parameter for the explicit plane equation of the
-   subroom, for the construction of a 3D environment and should be used
-   to describe stairs. The plane equation is given by:
-
-   .. math:: Z = Ax +By + C
-
-   . For instance, if the stair goes through the following points:
-
-   .. math:: P_1(1,0,0),\; P_2 (0,1,0)\; \text{and}\; P_3(0,0,1)
-
-   then the equation is given by:
-
-   .. math:: Z= -x -y +1
-
-   .
-
+- :math:`A\_x,\; B\_y,\text{and}\; C` are optional parameter for the explicit
+  plane equation of the  subroom, for the construction of a 3D environment and
+  should be used to describe stairs. The plane equation is given by:
+  :math:`Z = Ax +By + C`. For instance, if the stair goes through the following
+  points: :math:`P_1(1,0,0),\; P_2 (0,1,0)\; \text{and}\; P_3(0,0,1)` then the
+  equation is given by: :math:`Z= -x -y +1`.
 -  ``polygon`` describes the walls as a sequence of *two* vertexes.
 
 To ease navigation, it is recommended to always use convex subrooms. In
 the case the subroom is not convex, additional navigation lines might be
 required or the floor field router should be used.
 
-{%include important.html content=“Every room has at least one
-subroom.”%}
+.. note::
+    Every room has at least one subroom.
 
 Obstacles
 =========
