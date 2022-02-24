@@ -43,14 +43,4 @@ To highlight some features of ``JuPedSim`` we have uploaded some videos
 and tutorials on our `YouTube
 channel <https://www.youtube.com/channel/UCKS8w8CUClHEeN4K1SUSMBA>`__.
 
-.. note::
-
-   This project is under active development.
-
-Contents
---------
-
-.. toctree::
-   jpscore
-   jpsreport
-   jpsvis
+{% include links.html %}
