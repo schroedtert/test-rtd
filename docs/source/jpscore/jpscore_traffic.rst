@@ -61,7 +61,7 @@ Here are the rules governing the changes from one status to another:
    and **not** wait in front of the closed door. And if there is no
    other open door, the agents should wait inside the room.
 
-.. figure:: %7B%7B%20site.baseurl%20%7D%7D/images/door_states.png
+.. figure:: ../images/door_states.png
    :alt: Changes of door’s status
 
    Changes of door’s status
