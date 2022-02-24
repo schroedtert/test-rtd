@@ -5,11 +5,11 @@ Trains
 Train constraints
 =================
 
-Information regarding trains are organized in two different files: -
-`Train types <#train-types>`__: In this file types of trains are
-defined. - `Train timetable <#train-timetable>`__: This file defines
-arrival and departure times of trains and specifies their location on
-tracks.
+Information regarding trains are organized in two different files:
+  - `Train types <#train-types>`__: In this file types of trains are
+    defined.
+  - `Train timetable <#train-timetable>`__: This file defines arrival and
+    departure times of trains and specifies their location on tracks.
 
 Train types
 ===========
@@ -30,9 +30,9 @@ A train is defined through the following information:
    -  (optional) ``outflow`` (float): maximum flow at the specific train
       door (persons per second).
 
-{%include note.html content=“The parameter ``length`` is not used yet.
-In future it will be used for sanity checks and for avoiding overlapping
-trains.”%}
+.. note::
+    The parameter ``length`` is not used yet. In future it will be used for
+    sanity checks and for avoiding overlapping trains.”
 
 Example
 -------
@@ -53,7 +53,7 @@ Example
        </train>
    </train_type>
 
-.. figure:: %7B%7B%20site.baseurl%20%7D%7D/images/trains/traintype.png
+.. figure:: ../images/trains/traintype.png
    :alt: Schematic overview of train type definition.
 
    Schematic overview of train type definition.
@@ -70,25 +70,23 @@ are closed.
 Train timetable
 ===============
 
-.. _definition-1:
-
 Definition
 ----------
 
-A train is defined through the following information: - ``id`` (int): id
-of the train - ``type`` (string): identifier of the train defined with
-the train types - ``track_id`` (int): id of the track the train arrives,
-more information on tracks (`geometry
-defintion <#geometry-definition>`__) - ``train_offset`` (float): offset
-of the train to the track start - ``reversed`` (bool): false: train
-starts at track start (default), true: train starts at track end -
-``arrival_time`` (float): time the train arrives - ``departure_time``
-(float): time the train departs
+A train is defined through the following information:
+  - ``id`` (int): id of the train
+  - ``type`` (string): identifier of the train defined with the train types
+  - ``track_id`` (int): id of the track the train arrives, more information on
+    tracks (`geometry defintion <#geometry-definition>`__)
+  - ``train_offset`` (float): offset of the train to the track start
+  - ``reversed`` (bool): false: train starts at track start (default), true:
+    train starts at track end
+  - ``arrival_time`` (float): time the train arrives
+  - ``departure_time`` (float): time the train departs
 
-{%include note.html content=“The parameter ``reversed`` adds doors
-starting from track end in direction of track start!”%}
-
-.. _example-1:
+.. note::
+    The parameter ``reversed`` adds doors starting from track end in direction
+    of track start!
 
 Example
 -------
@@ -122,7 +120,10 @@ geometry. A track is a consecutive line sequence, marked by the type
 ``type="track"``. For each track, one point needs to be marked as a
 starting point with ``start="true"``, which represents the reference
 point for the location of trains on tracks (defined in `Train
-timetable <#train-timetable>`__). ### Example
+timetable <#train-timetable>`__).
+
+Example
+-------
 
 .. code:: xml
 
@@ -151,10 +152,11 @@ departing.
 Calculation of train door positions
 -----------------------------------
 
-For calculating the train door coordinates, the following rules apply: -
-Distance between train start and door start is calculated along the
-track walls - Distance between door start and door end is calculated as
-direct connection (see below)
+For calculating the train door coordinates, the following rules apply:
+  - Distance between train start and door start is calculated along the track
+    walls
+  - Distance between door start and door end is calculated as direct connection
+    (see below)
 
 Splitting of the track walls
 ----------------------------
@@ -162,7 +164,7 @@ Splitting of the track walls
 Case 1: Door on one single wall element
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: %7B%7B%20site.baseurl%20%7D%7D/images/trains/trainCase1.png
+.. figure:: ../images/trains/trainCase1.png
    :alt: Door on a single wall element.
 
    Door on a single wall element.
@@ -170,7 +172,7 @@ Case 1: Door on one single wall element
 Case 2: Door on two neighboring wall elements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: %7B%7B%20site.baseurl%20%7D%7D/images/trains/trainCase2.png
+.. figure:: ../images/trains/trainCase2.png
    :alt: Door on two neighboring wall elements.
 
    Door on two neighboring wall elements.
@@ -178,14 +180,14 @@ Case 2: Door on two neighboring wall elements
 Case 3: Door on more than two wall elements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: %7B%7B%20site.baseurl%20%7D%7D/images/trains/trainCase3.png
+.. figure:: ../images/trains/trainCase3.png
    :alt: Door on more than two wall elements.
 
    Door on more than two wall elements.
 
-{%include note.html content=“Please be aware that depending on the
-curvature of the platform edges a significant area of platform might be
-not accessible. Pedestrian inside this area will be removed from the
-simulation and report as erroneous.”%}
+.. warning::
+    Please be aware that depending on the curvature of the platform edges a
+    significant area of platform might be not accessible. Pedestrian inside
+    this area will be removed from the simulation and report as erroneous.
 
-.. |Schematic overview of train arrival on platform.| image:: %7B%7B%20site.baseurl%20%7D%7D/images/trains/traintimetable.png
+.. |Schematic overview of train arrival on platform.| image:: ../images/trains/traintimetable.png
